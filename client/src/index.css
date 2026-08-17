@@ -1,0 +1,43 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+/* Cartografia Viva — papel mineral, verde de mata e ocre de marco; movimento territorial, nunca decorativo. */
+@custom-variant dark (&:is(.dark *));
+@theme inline {
+  --font-sans: "Manrope", sans-serif;
+  --font-display: "DM Serif Display", serif;
+  --color-paper: #f6f4ed;
+  --color-sand: #e9e6da;
+  --color-ink: #24352b;
+  --color-forest: #163d2c;
+  --color-ocre: #c58a3a;
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-border: var(--border);
+  --color-ring: var(--ring);
+  --radius: 0.9rem;
+}
+:root { --background: #f6f4ed; --foreground: #24352b; --card: #f6f4ed; --card-foreground: #24352b; --border: rgba(36,53,43,.14); --ring: #c58a3a; }
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; background: #f6f4ed; color: #24352b; font-family: "Manrope", sans-serif; -webkit-font-smoothing: antialiased; }
+button, a { -webkit-tap-highlight-color: transparent; }
+::selection { background: #c58a3a; color: white; }
+.container { width: 100%; margin-inline: auto; padding-inline: 1.25rem; }
+@media (min-width: 640px) { .container { padding-inline: 2rem; } }
+@media (min-width: 1024px) { .container { max-width: 1280px; padding-inline: 3rem; } }
+.font-display { font-family: "DM Serif Display", serif; }
+.eyebrow { font-size: 10px; font-weight: 800; letter-spacing: .19em; line-height: 1.2; text-transform: uppercase; }
+.tag { display: inline-flex; width: fit-content; border: 1px solid rgba(255,255,255,.28); border-radius: 999px; padding: .45rem .65rem; font-size: 9px; font-weight: 800; letter-spacing: .15em; text-transform: uppercase; }
+.hero { isolation: isolate; }
+.hero::after { content: ""; position: absolute; inset: 0; pointer-events: none; opacity: .12; background-image: url("/manus-storage/vertente-topo-texture_a4e6e3bf.jpg"); background-size: 55%; mix-blend-mode: screen; }
+.topo-line { stroke-dasharray: 1400; stroke-dashoffset: 1400; animation: topo-draw 10s cubic-bezier(.77,0,.175,1) forwards; }
+.topo-delay-1 { animation-delay: .2s; } .topo-delay-2 { animation-delay: .7s; } .topo-delay-3 { animation-delay: 1.2s; }
+@keyframes topo-draw { to { stroke-dashoffset: 0; } }
+.service-card { box-shadow: 0 20px 50px rgba(22,61,44,.12); transition: transform .35s cubic-bezier(.23,1,.32,1), box-shadow .35s; }
+.service-card:hover { transform: translateY(-5px); box-shadow: 0 28px 70px rgba(22,61,44,.2); }
+a, button { transition: color .2s, background-color .2s, border-color .2s, transform .2s, opacity .2s; }
+a:focus-visible, button:focus-visible { outline: 3px solid #c58a3a; outline-offset: 4px; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; } }
