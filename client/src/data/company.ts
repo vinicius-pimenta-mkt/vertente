@@ -8,7 +8,7 @@ export const company = {
   phoneDisplay: "(28) 99994-3392",
   phoneLink: "tel:+5528999943392",
   whatsappNumber: "5528999943392",
-  email: "[e-mail a confirmar]",
+  email: "vertentevegetal@gmail.com",
   address: "[endereço completo a confirmar]",
   description: "A Vertente Vegetal ajuda produtores a compreender melhor o território, organizar decisões e avançar com mais segurança em questões agrícolas e ambientais.",
   whatsappMessage: "Olá! Vim pelo site e gostaria de uma conversa sobre minha propriedade.",
