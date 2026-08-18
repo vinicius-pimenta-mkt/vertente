@@ -8,11 +8,17 @@ import { Route, Switch } from "wouter";
 import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
 
+function GenericServicePage() { return <ServicePage />; }
+function LaudosPage() { return <ServicePage forcedSlug="laudos-e-licencas" />; }
+function ConservacaoPage() { return <ServicePage forcedSlug="conservacao-solo-agua" />; }
+
 function Router() {
   return (
     <Switch>
       <Route path="/" component={Home} />
-      <Route path="/servicos/:slug" component={ServicePage} />
+      <Route path="/servicos/:slug" component={GenericServicePage} />
+      <Route path="/laudos-e-licencas" component={LaudosPage} />
+      <Route path="/conservacao-solo-agua" component={ConservacaoPage} />
       <Route path="/404" component={NotFound} />
       <Route component={NotFound} />
     </Switch>
