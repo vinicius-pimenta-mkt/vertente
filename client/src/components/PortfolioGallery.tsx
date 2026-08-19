@@ -7,9 +7,9 @@ import type { Service } from "@/data/services";
 type GalleryProps = { service: Service };
 
 const fallbackImages = [
-  "/manus-storage/vertente-hero_69fb3e42.jpg",
-  "/manus-storage/vertente-reflorestar_389e947e.jpg",
-  "/manus-storage/vertente-field_1381125a.jpg",
+  "/images/hero.png",
+  "/images/reflorestar.png",
+  "/images/field.png",
 ];
 
 export default function PortfolioGallery({ service }: GalleryProps) {
