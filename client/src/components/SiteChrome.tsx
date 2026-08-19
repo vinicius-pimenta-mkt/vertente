@@ -10,13 +10,9 @@ export function Logo({ light = false }: { light?: boolean }) {
 
 const nav = [
   ["Início", "/"],
-  ["Georreferenciamento", "/servicos/georreferenciamento"],
-  ["Medição", "/servicos/medicao-de-propriedades"],
-  ["Reflorestar", "/servicos/programa-reflorestar"],
-  ["Consultoria", "/servicos/consultoria-agricola-e-ambiental"],
-  ["Laudos e licenças", "/servicos/laudos-e-licencas"],
-  ["Conservação de solo e água", "/servicos/conservacao-solo-agua"],
+  ["A Vertente", "/#a-vertente"],
   ["Serviços", "/#servicos"],
+  ["Reflorestar", "/servicos/programa-reflorestar"],
   ["Contato", "/#contato"],
 ];
 
