@@ -39,7 +39,7 @@ export const services: Service[] = [
     whatWeDo: "A Vertente organiza a demanda e encaminha a leitura das áreas de forma próxima, sem transformar o produtor em especialista em mapas para conseguir avançar.",
     when: ["Você precisa medir uma área específica.", "Está planejando uma divisão, herança ou mudança de uso.", "Quer deixar a propriedade mais bem documentada."],
     process: ["Entendimento do que precisa ser medido.", "Planejamento da coleta e da representação.", "Entrega de uma leitura organizada para o próximo passo."],
-    image: "/images/medicao.jpg",
+    image: "/images/medicao.JPG",
     gallery: ["/portfolio/medicao/medicao.jpg", "/portfolio/medicao/medicao2.jpg", "/portfolio/medicao/medicao3.jpg"],
     accent: "verde",
   },
