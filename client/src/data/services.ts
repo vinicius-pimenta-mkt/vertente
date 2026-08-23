@@ -73,7 +73,7 @@ export const services: Service[] = [
   },
   {
     slug: "laudos-e-licencas",
-    title: "Laudos e Licenças Jurídicas, Ambientais e Operacionais",
+    title: "Laudos e Licenças Ambientais, Jurídicas e Operacionais",
     eyebrow: "05 · REGULARIZAÇÃO",
     summary: "Documentação técnica e apoio à regularização de atividades e intervenções que exigem licenças ou laudos.",
     portfolioDescription: "Documentação técnica e apoio à regularização de atividades e intervenções que exigem licenças ou laudos.",
@@ -81,7 +81,7 @@ export const services: Service[] = [
     whatWeDo: "A Vertente apoia a organização de laudos, documentos e licenças aplicáveis às necessidades da propriedade ou atividade, respeitando as atribuições de órgãos públicos e profissionais habilitados.",
     when: ["Você precisa entender quais documentos podem ser necessários.", "Vai iniciar uma atividade ou intervenção que exige regularização.", "Quer organizar informações técnicas para dar andamento ao processo."],
     process: ["Conversa sobre a propriedade, atividade ou intervenção.", "Levantamento do que precisa ser analisado e documentado.", "Orientação sobre os próximos passos e responsáveis aplicáveis."],
-    image: "/images/field.jpg",
+    image: "/images/laudos.png",
     gallery: ["/portfolio/laudos/laudos1.jpg", "/portfolio/laudos/laudos2.jpg", "/portfolio/laudos/laudos3.jpg"],
     accent: "ocre",
   },
