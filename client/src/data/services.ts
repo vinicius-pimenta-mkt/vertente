@@ -40,7 +40,7 @@ export const services: Service[] = [
     when: ["Você precisa medir uma área específica.", "Está planejando uma divisão, herança ou mudança de uso.", "Quer deixar a propriedade mais bem documentada."],
     process: ["Entendimento do que precisa ser medido.", "Planejamento da coleta e da representação.", "Entrega de uma leitura organizada para o próximo passo."],
     image: "/images/topo-texture.jpg",
-    gallery: ["/portfolio/medicao/medicao1.jpg", "/portfolio/medicao/medicao2.jpg", "/portfolio/medicao/medicao3.jpg"],
+    gallery: ["/portfolio/medicao/medicao.png", "/portfolio/medicao/medicao2.jpg", "/portfolio/medicao/medicao3.jpg"],
     accent: "verde",
   },
   {
