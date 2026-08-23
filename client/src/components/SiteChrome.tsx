@@ -5,7 +5,20 @@ import { ArrowUpRight, Menu, MessageCircle, X } from "lucide-react";
 import { company, whatsappUrl } from "@/data/company";
 
 export function Logo({ light = false }: { light?: boolean }) {
-  return <Link href="/" className={`group inline-flex items-center gap-3 ${light ? "text-white" : "text-ink"}`} aria-label="Vertente Vegetal — início"><span className={`relative grid size-10 place-items-center overflow-hidden rounded-full border ${light ? "border-white/30 bg-white/10" : "border-forest/20 bg-paper"}`}><img src="/images/mark.png" alt="" className="relative z-10 size-7 object-contain" /><span className="absolute -inset-3 rounded-full border border-ocre/40" /><span className="absolute -inset-1 rounded-full border border-ocre/25" /></span><span className="leading-none"><strong className="block text-[14px] font-extrabold uppercase tracking-[0.08em]">Vertente Vegetal</strong><span className={`block pt-1 text-[9px] font-bold uppercase tracking-[0.22em] ${light ? "text-white/65" : "text-ink/55"}`}>Consultoria agrícola e ambiental</span></span></Link>;
+  return (
+    <Link href="/" className={`group inline-flex items-center gap-3 ${light ? "text-white" : "text-ink"}`} aria-label="Vertente Vegetal — início">
+      {/* Alterado para formato de banner branco sólido com logo maior */}
+      <span className="relative flex w-14 h-[72px] items-start justify-center pt-3 overflow-hidden rounded-b-[24px] bg-white shadow-sm border-x border-b border-forest/10">
+        <img src="/images/mark.png" alt="" className="relative z-10 size-9 object-contain" />
+      </span>
+      <span className="leading-none">
+        <strong className="block text-[14px] font-extrabold uppercase tracking-[0.08em]">Vertente Vegetal</strong>
+        <span className={`block pt-1 text-[9px] font-bold uppercase tracking-[0.22em] ${light ? "text-white/65" : "text-ink/55"}`}>
+          Consultoria agrícola e ambiental
+        </span>
+      </span>
+    </Link>
+  );
 }
 
 const nav = [
@@ -20,7 +33,26 @@ export function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   useEffect(() => { const onScroll = () => setScrolled(window.scrollY > 32); window.addEventListener("scroll", onScroll, { passive: true }); return () => window.removeEventListener("scroll", onScroll); }, []);
-  return <header className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${scrolled || open ? "border-b border-ink/10 bg-paper/95 text-ink shadow-[0_10px_35px_rgba(36,55,42,0.08)] backdrop-blur-xl" : "bg-transparent text-white"}`}><div className="container flex h-[82px] items-center justify-between gap-4 transition-all duration-300 md:h-[90px]"><Logo light={!scrolled && !open} /><nav className="hidden min-w-0 flex-1 items-center justify-center gap-4 overflow-x-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden lg:flex">{nav.map(([label, href]) => <a key={href} href={href} className="shrink-0 text-[9px] font-bold uppercase tracking-[0.12em] opacity-80 transition hover:opacity-100">{label}</a>)}</nav><div className="flex shrink-0 items-center gap-3"><a href={whatsappUrl} className={`hidden items-center gap-2 rounded-full px-4 py-2.5 text-xs font-bold transition hover:-translate-y-0.5 2xl:inline-flex ${scrolled ? "bg-forest text-white" : "bg-white/15 text-white ring-1 ring-white/30 backdrop-blur"}`} onClick={() => window.dispatchEvent(new CustomEvent("vv:whatsapp"))}><MessageCircle size={15} /> Falar com a Vertente</a><button type="button" className="grid size-11 place-items-center rounded-full border border-current/20 lg:hidden" onClick={() => setOpen(!open)} aria-label={open ? "Fechar menu" : "Abrir menu"}>{open ? <X size={19} /> : <Menu size={19} />}</button></div></div>{open && <div className="max-h-[calc(100vh-82px)] overflow-y-auto border-t border-ink/10 bg-paper px-5 py-5 lg:hidden"><nav className="flex flex-col gap-4">{nav.map(([label, href]) => <a key={href} href={href} onClick={() => setOpen(false)} className="flex items-center justify-between border-b border-ink/10 pb-3 text-sm font-bold uppercase tracking-[0.11em]">{label}<ArrowUpRight size={16} /></a>)}</nav></div>}</header>;
+  return (
+    <header className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${scrolled || open ? "border-b border-ink/10 bg-paper/95 text-ink shadow-[0_10px_35px_rgba(36,55,42,0.08)] backdrop-blur-xl" : "bg-transparent text-white"}`}>
+      <div className="container flex h-[82px] items-center justify-between gap-4 transition-all duration-300 md:h-[90px]">
+        <Logo light={!scrolled && !open} />
+        {/* Adicionado p-2 e text-xs para aumentar a área de clique e leitura */}
+        <nav className="hidden min-w-0 flex-1 items-center justify-center gap-6 overflow-x-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden lg:flex">
+          {nav.map(([label, href]) => (
+            <a key={href} href={href} className="shrink-0 p-2 text-xs font-bold uppercase tracking-[0.12em] opacity-80 transition hover:opacity-100">
+              {label}
+            </a>
+          ))}
+        </nav>
+        <div className="flex shrink-0 items-center gap-3">
+          <a href={whatsappUrl} className={`hidden items-center gap-2 rounded-full px-4 py-2.5 text-xs font-bold transition hover:-translate-y-0.5 2xl:inline-flex ${scrolled ? "bg-forest text-white" : "bg-white/15 text-white ring-1 ring-white/30 backdrop-blur"}`} onClick={() => window.dispatchEvent(new CustomEvent("vv:whatsapp"))}><MessageCircle size={15} /> Falar com a Vertente</a>
+          <button type="button" className="grid size-11 place-items-center rounded-full border border-current/20 lg:hidden" onClick={() => setOpen(!open)} aria-label={open ? "Fechar menu" : "Abrir menu"}>{open ? <X size={19} /> : <Menu size={19} />}</button>
+        </div>
+      </div>
+      {open && <div className="max-h-[calc(100vh-82px)] overflow-y-auto border-t border-ink/10 bg-paper px-5 py-5 lg:hidden"><nav className="flex flex-col gap-4">{nav.map(([label, href]) => <a key={href} href={href} onClick={() => setOpen(false)} className="flex items-center justify-between border-b border-ink/10 pb-3 text-sm font-bold uppercase tracking-[0.11em]">{label}<ArrowUpRight size={16} /></a>)}</nav></div>}
+    </header>
+  );
 }
 
 export function WhatsAppFloat() { return <a href={whatsappUrl} aria-label="Falar pelo WhatsApp" className="fixed bottom-5 right-5 z-40 grid size-14 place-items-center rounded-full bg-ocre text-white shadow-[0_12px_30px_rgba(197,138,58,0.35)] transition hover:-translate-y-1 hover:bg-forest" onClick={() => window.dispatchEvent(new CustomEvent("vv:whatsapp"))}><MessageCircle size={23} /></a>; }
