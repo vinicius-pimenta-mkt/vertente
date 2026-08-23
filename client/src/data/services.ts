@@ -54,7 +54,7 @@ export const services: Service[] = [
     when: ["Você tem uma nascente, curso d’água ou área de vegetação.", "Existe um trecho degradado que precisa de recuperação.", "Quer saber se a propriedade pode ter oportunidades no Reflorestar."],
     process: ["Avaliação inicial do contexto da área.", "Leitura das modalidades e requisitos aplicáveis.", "Orientação dos próximos passos para o seu caso."],
     image: "/images/reflorestar.jpg",
-    gallery: ["/portfolio/reflo/reflo1.png", "/portfolio/reflo/reflo2.png", "/portfolio/reflo/reflo3.jpg", "/portfolio/reflo/reflo4.jpg", "/portfolio/reflo/reflo5.png",  "/portfolio/reflo/reflo6.png"],
+    gallery: ["/portfolio/reflo/reflo1.png", "/portfolio/reflo/reflo2.png", "/portfolio/reflo/reflo3.JPG", "/portfolio/reflo/reflo4.JPG", "/portfolio/reflo/reflo5.png",  "/portfolio/reflo/reflo6.png"],
     accent: "ocre",
   },
   {
@@ -96,7 +96,7 @@ export const services: Service[] = [
     when: ["A chuva está carregando solo ou abrindo erosões.", "Você quer favorecer a infiltração e reduzir perdas de água.", "Precisa planejar práticas de conservação para os períodos de chuva e seca."],
     process: ["Leitura do relevo, do solo e dos caminhos da água.", "Definição das prioridades e das soluções possíveis.", "Orientação para implantação e acompanhamento dos próximos passos."],
     image: "/images/conservacao.jpg",
-    gallery: ["/portfolio/solo-agua/solo1.jpg", "/portfolio/solo-agua/solo2.png", "/portfolio/solo-agua/solo3.jpg", "/portfolio/solo-agua/solo4.jpg", "/portfolio/solo-agua/solo5.jpg", "/portfolio/solo-agua/solo6.jpg", "/portfolio/solo-agua/solo7.jpg"],
+    gallery: ["/portfolio/solo-agua/solo1.jpg", "/portfolio/solo-agua/solo2.JPG", "/portfolio/solo-agua/solo3.jpg", "/portfolio/solo-agua/solo4.jpg", "/portfolio/solo-agua/solo5.JPG", "/portfolio/solo-agua/solo6.jpg"],
     accent: "verde",
   },
 ];
