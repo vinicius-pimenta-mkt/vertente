@@ -96,7 +96,7 @@ export const services: Service[] = [
     when: ["A chuva está carregando solo ou abrindo erosões.", "Você quer favorecer a infiltração e reduzir perdas de água.", "Precisa planejar práticas de conservação para os períodos de chuva e seca."],
     process: ["Leitura do relevo, do solo e dos caminhos da água.", "Definição das prioridades e das soluções possíveis.", "Orientação para implantação e acompanhamento dos próximos passos."],
     image: "/images/conservacao.jpg",
-    gallery: ["/portfolio/solo-agua/solo1.jpg", "/portfolio/solo-agua/solo2.JPG", "/portfolio/solo-agua/solo3.jpg", "/portfolio/solo-agua/solo4.jpg", "/portfolio/solo-agua/solo5.JPG", "/portfolio/solo-agua/solo6.jpg"],
+    gallery: ["/portfolio/solo-agua/solo1.jpg", "/portfolio/solo-agua/solo2.png", "/portfolio/solo-agua/solo3.jpg", "/portfolio/solo-agua/solo4.jpg", "/portfolio/solo-agua/solo5.JPG", "/portfolio/solo-agua/solo6.jpg", "/portfolio/solo-agua/solo7.jpg"],
     accent: "verde",
   },
 ];
