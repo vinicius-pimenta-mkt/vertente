@@ -95,7 +95,7 @@ export const services: Service[] = [
     whatWeDo: "A Vertente avalia o relevo, os caminhos da água e as condições do solo para orientar práticas e estruturas coerentes com o cenário da propriedade, como barraginhas, caixas secas, coxinhos e outras soluções aplicáveis.",
     when: ["A chuva está carregando solo ou abrindo erosões.", "Você quer favorecer a infiltração e reduzir perdas de água.", "Precisa planejar práticas de conservação para os períodos de chuva e seca."],
     process: ["Leitura do relevo, do solo e dos caminhos da água.", "Definição das prioridades e das soluções possíveis.", "Orientação para implantação e acompanhamento dos próximos passos."],
-    image: "/images/field.jpg",
+    image: "/images/conservacao.jpg",
     gallery: ["/portfolio/solo-agua/solo1.jpg", "/portfolio/solo-agua/solo2.jpg", "/portfolio/solo-agua/solo3.jpg"],
     accent: "verde",
   },
