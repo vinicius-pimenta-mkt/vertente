@@ -26,7 +26,7 @@ export const services: Service[] = [
     when: ["Você precisa entender os limites da propriedade.", "Vai dividir, medir ou planejar uma nova intervenção.", "Precisa organizar informações espaciais para orientar uma regularização."],
     process: ["Conversa inicial sobre o objetivo da propriedade.", "Leitura do cenário e definição do levantamento necessário.", "Organização das informações para orientar a próxima decisão."],
     image: "/images/hero.png",
-    gallery: ["/portfolio/geo/geo1.JPG", "/portfolio/geo/geo2.JPG", "/portfolio/geo/geo3.JPG", "/portfolio/geo/geo4.JPG", "/portfolio/geo/geo5.JPG", "/portfolio/geo/geo6.JPG", "/portfolio/geo/geo7.JPG", "/portfolio/geo/geo8.JPG", "/portfolio/geo/geo9.JPG"],
+    gallery: ["/portfolio/geo/geo1.jpg", "/portfolio/geo/geo2.jpg", "/portfolio/geo/geo3.jpg", "/portfolio/geo/geo4.jpg", "/portfolio/geo/geo5.jpg", "/portfolio/geo/geo6.jpg", "/portfolio/geo/geo7.jpg", "/portfolio/geo/geo8.jpg", "/portfolio/geo/geo9.jpg"],
     accent: "ocre",
   },
   {
