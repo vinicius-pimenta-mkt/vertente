@@ -6,10 +6,11 @@ import type { Service } from "@/data/services";
 
 type GalleryProps = { service: Service };
 
+// Correção 1: Extensões ajustadas para .jpg para bater com os arquivos reais
 const fallbackImages = [
   "/images/hero.png",
-  "/images/reflorestar.png",
-  "/images/field.png",
+  "/images/reflorestar.jpg", 
+  "/images/field.jpg",
 ];
 
 export default function PortfolioGallery({ service }: GalleryProps) {
@@ -48,7 +49,8 @@ export default function PortfolioGallery({ service }: GalleryProps) {
         {images.map((src, imageIndex) => (
             <button type="button" key={src} onClick={() => open(imageIndex)} className="group relative min-w-[78%] snap-start overflow-hidden rounded-2xl bg-sand text-left sm:min-w-[48%] lg:min-w-[31.5%]" aria-label={`Ampliar imagem ${imageIndex + 1} de ${service.title}`}>
                 <div className="aspect-[4/3]">
-                    <img src={src} alt={`${service.title} — imagem ${imageIndex + 1}`} loading="lazy" className="h-full w-full object-cover transition duration-700 group-hover:scale-105" onError={(event) => { event.currentTarget.src = fallbackImages[imageIndex % fallbackImages.length]; }} />
+                    {/* Correção 2: event.currentTarget.onerror = null adicionado para evitar loop infinito de requisições */}
+                    <img src={src} alt={`${service.title} — imagem ${imageIndex + 1}`} loading="lazy" className="h-full w-full object-cover transition duration-700 group-hover:scale-105" onError={(event) => { event.currentTarget.onerror = null; event.currentTarget.src = fallbackImages[imageIndex % fallbackImages.length]; }} />
                 </div>
                 <span className="absolute left-3 top-3 tag bg-forest/80 text-white">{String(imageIndex + 1).padStart(2, "0")}</span>
                 <span className="absolute bottom-3 right-3 grid size-9 place-items-center rounded-full bg-paper/90 text-forest transition group-hover:bg-ocre group-hover:text-white"><MoveUpRight size={15} /></span>
@@ -64,7 +66,8 @@ export default function PortfolioGallery({ service }: GalleryProps) {
         <div className="fixed inset-0 z-[70] grid place-items-center bg-forest/95 p-5" role="dialog" aria-modal="true" aria-label={`Galeria ampliada de ${service.title}`}>
             <button type="button" onClick={close} className="absolute right-5 top-5 grid size-11 place-items-center rounded-full border border-white/20 text-white hover:bg-white/10" aria-label="Fechar galeria"><X /></button>
             <button type="button" onClick={previous} className="absolute left-4 grid size-11 place-items-center rounded-full border border-white/20 text-white hover:bg-white/10 md:left-8" aria-label="Imagem anterior"><ChevronLeft /></button>
-            <img src={images[index]} alt={`${service.title} — imagem ampliada ${index + 1}`} className="max-h-[82vh] max-w-[88vw] rounded-2xl object-contain" onError={(event) => { event.currentTarget.src = fallbackImages[index % fallbackImages.length]; }} />
+            {/* Correção 2: event.currentTarget.onerror = null também adicionado no modal ampliado */}
+            <img src={images[index]} alt={`${service.title} — imagem ampliada ${index + 1}`} className="max-h-[82vh] max-w-[88vw] rounded-2xl object-contain" onError={(event) => { event.currentTarget.onerror = null; event.currentTarget.src = fallbackImages[index % fallbackImages.length]; }} />
             <button type="button" onClick={next} className="absolute right-4 grid size-11 place-items-center rounded-full border border-white/20 text-white hover:bg-white/10 md:right-8" aria-label="Próxima imagem"><ChevronRight /></button>
             <p className="absolute bottom-6 text-xs uppercase tracking-[0.2em] text-white/50">{String(index + 1).padStart(2, "0")} / {String(images.length).padStart(2, "0")}</p>
         </div>
