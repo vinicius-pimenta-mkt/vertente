@@ -68,7 +68,7 @@ export const services: Service[] = [
     when: ["Você não sabe exatamente qual serviço precisa.", "Quer planejar uma intervenção com mais segurança.", "Precisa equilibrar produção, conservação e regularização."],
     process: ["Conversa sobre o que está acontecendo na propriedade.", "Organização das prioridades e oportunidades.", "Indicação do próximo passo mais coerente."],
     image: "/images/field.jpg",
-    gallery: ["/portfolio/consultoria/consultoria1.jpg", "/portfolio/consultoria/consultoria2.jpg", "/portfolio/consultoria/consultoria3.jpg"],
+    gallery: ["/portfolio/consultoria/consultoria1.png", "/portfolio/consultoria/consultoria2.png", "/portfolio/consultoria/consultoria3.png"],
     accent: "verde",
   },
   {
