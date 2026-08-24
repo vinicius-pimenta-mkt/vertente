@@ -82,7 +82,7 @@ export const services: Service[] = [
     when: ["Você precisa entender quais documentos podem ser necessários.", "Vai iniciar uma atividade ou intervenção que exige regularização.", "Quer organizar informações técnicas para dar andamento ao processo."],
     process: ["Conversa sobre a propriedade, atividade ou intervenção.", "Levantamento do que precisa ser analisado e documentado.", "Orientação sobre os próximos passos e responsáveis aplicáveis."],
     image: "/images/laudos.png",
-    gallery: ["/portfolio/laudos/laudos1.jpg", "/portfolio/laudos/laudos2.jpg", "/portfolio/laudos/laudos3.jpg"],
+    gallery: ["/portfolio/laudos/laudos1.png", "/portfolio/laudos/laudos2.png", "/portfolio/laudos/laudos3.png"],
     accent: "ocre",
   },
   {
