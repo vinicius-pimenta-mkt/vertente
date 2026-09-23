@@ -59,72 +59,67 @@ export function WhatsAppFloat() { return <a href={whatsappUrl} aria-label="Falar
 
 export function Footer() { 
   return (
-    <footer className="bg-forest text-white">
-      {/* O grid foi ajustado para lg:grid-cols-[1fr_0.8fr_0.9fr_1.2fr] para acomodar a 4ª coluna do mapa */}
-      <div className="container grid gap-12 py-16 md:grid-cols-2 lg:grid-cols-[1fr_0.8fr_0.9fr_1.2fr] md:py-20">
-        <div>
-          <Logo light />
-          <p className="mt-6 max-w-sm text-sm leading-7 text-white/65">{company.description}</p>
-          <p className="mt-6 text-xs font-bold uppercase tracking-[0.18em] text-ocre">{company.region}</p>
-        </div>
-        
-        <div>
-          <p className="eyebrow text-white/45">Explorar</p>
-          <div className="mt-5 flex flex-col gap-3 text-sm text-white/75">
-            <a href="/#a-vertente" className="hover:text-ocre">A Vertente</a>
-            <a href="/#servicos" className="hover:text-ocre">Serviços</a>
-            <a href="/servicos/programa-reflorestar" className="hover:text-ocre">Reflorestar</a>
-            <a href="/servicos/laudos-e-licencas" className="hover:text-ocre">Laudos e licenças</a>
-            <a href="/servicos/conservacao-solo-agua" className="hover:text-ocre">Conservação de solo e água</a>
-            <a href="/#contato" className="hover:text-ocre">Contato</a>
-          </div>
-        </div>
-        
-        <div>
-          <p className="eyebrow text-white/45">Converse</p>
-          <div className="mt-5 flex flex-col gap-3 text-sm text-white/75">
-            <a href={company.phoneLink} className="hover:text-ocre">
-              <span className="block text-[10px] font-bold uppercase tracking-[0.15em] text-white/40">Telefone · WhatsApp</span>
-              {company.phoneDisplay}
-            </a>
-            <a href={`mailto:${company.email}`} className="hover:text-ocre">
-              <span className="block text-[10px] font-bold uppercase tracking-[0.15em] text-white/40">E-mail</span>
-              {company.email}
-            </a>
-            <a href={company.instagramUrl} target="_blank" rel="noreferrer" className="hover:text-ocre">
-              <span className="block text-[10px] font-bold uppercase tracking-[0.15em] text-white/40">Instagram</span>
-              {company.instagramHandle}
-            </a>
-          </div>
-        </div>
+    <>
+      {/* SEÇÃO DO MAPA FULL WIDTH ANTES DO RODAPÉ */}
+      <section className="w-full h-[400px] md:h-[450px] bg-paper">
+        <iframe 
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3736.2129783753585!2d-41.663552599999996!3d-20.538465!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xbbeb8c2707a579%3A0xcfd95b5c706a810b!2sVertente%20Vegetal!5e0!3m2!1spt-BR!2sbr!4v1790120313713!5m2!1spt-BR!2sbr" 
+          width="100%" 
+          height="100%" 
+          style={{ border: 0 }} 
+          allowFullScreen={false} 
+          loading="lazy" 
+          referrerPolicy="strict-origin-when-cross-origin"
+          title="Mapa de localização da Vertente Vegetal"
+        />
+      </section>
 
-        {/* NOVA COLUNA: MAPA E ENDEREÇO */}
-        <div className="flex flex-col">
-          <p className="eyebrow text-white/45">Onde estamos</p>
-          <div className="mt-5 h-40 w-full overflow-hidden rounded-2xl border border-white/10 bg-white/5">
-            <iframe 
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3736.2129783753585!2d-41.663552599999996!3d-20.538465!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xbbeb8c2707a579%3A0xcfd95b5c706a810b!2sVertente%20Vegetal!5e0!3m2!1spt-BR!2sbr!4v1790120313713!5m2!1spt-BR!2sbr" 
-              width="100%" 
-              height="100%" 
-              style={{ border: 0 }} 
-              allowFullScreen={false} 
-              loading="lazy" 
-              referrerPolicy="strict-origin-when-cross-origin"
-            />
+      {/* RODAPÉ ORIGINAL */}
+      <footer className="bg-forest text-white">
+        <div className="container grid gap-12 py-16 md:grid-cols-[1.2fr_0.9fr_0.9fr] md:py-20">
+          <div>
+            <Logo light />
+            <p className="mt-6 max-w-sm text-sm leading-7 text-white/65">{company.description}</p>
+            <p className="mt-6 text-xs font-bold uppercase tracking-[0.18em] text-ocre">{company.region}</p>
           </div>
-          <p className="mt-4 text-xs leading-5 text-white/60">
-            Ibitirama — Espírito Santo<br />
-            Atendimento na região do Caparaó e entorno.
-          </p>
+          
+          <div>
+            <p className="eyebrow text-white/45">Explorar</p>
+            <div className="mt-5 flex flex-col gap-3 text-sm text-white/75">
+              <a href="/#a-vertente" className="hover:text-ocre">A Vertente</a>
+              <a href="/#servicos" className="hover:text-ocre">Serviços</a>
+              <a href="/servicos/programa-reflorestar" className="hover:text-ocre">Reflorestar</a>
+              <a href="/servicos/laudos-e-licencas" className="hover:text-ocre">Laudos e licenças</a>
+              <a href="/servicos/conservacao-solo-agua" className="hover:text-ocre">Conservação de solo e água</a>
+              <a href="/#contato" className="hover:text-ocre">Contato</a>
+            </div>
+          </div>
+          
+          <div>
+            <p className="eyebrow text-white/45">Converse</p>
+            <div className="mt-5 flex flex-col gap-3 text-sm text-white/75">
+              <a href={company.phoneLink} className="hover:text-ocre">
+                <span className="block text-[10px] font-bold uppercase tracking-[0.15em] text-white/40">Telefone · WhatsApp</span>
+                {company.phoneDisplay}
+              </a>
+              <a href={`mailto:${company.email}`} className="hover:text-ocre">
+                <span className="block text-[10px] font-bold uppercase tracking-[0.15em] text-white/40">E-mail</span>
+                {company.email}
+              </a>
+              <a href={company.instagramUrl} target="_blank" rel="noreferrer" className="hover:text-ocre">
+                <span className="block text-[10px] font-bold uppercase tracking-[0.15em] text-white/40">Instagram</span>
+                {company.instagramHandle}
+              </a>
+            </div>
+          </div>
         </div>
-
-      </div>
-      <div className="border-t border-white/10">
-        <div className="container flex flex-col gap-2 py-5 text-[11px] uppercase tracking-[0.14em] text-white/40 md:flex-row md:justify-between">
-          <span>© {new Date().getFullYear()} Vertente Vegetal</span>
-          <span>Consultoria agrícola e ambiental</span>
+        <div className="border-t border-white/10">
+          <div className="container flex flex-col gap-2 py-5 text-[11px] uppercase tracking-[0.14em] text-white/40 md:flex-row md:justify-between">
+            <span>© {new Date().getFullYear()} Vertente Vegetal</span>
+            <span>Consultoria agrícola e ambiental</span>
+          </div>
         </div>
-      </div>
-    </footer>
+      </footer>
+    </>
   ); 
 }
