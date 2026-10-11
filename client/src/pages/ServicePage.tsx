@@ -17,7 +17,10 @@ export default function ServicePage({ forcedSlug }: { forcedSlug?: string }) {
   const [, params] = useRoute("/servicos/:slug");
   const [, navigate] = useLocation();
   const service = services.find(item => item.slug === (forcedSlug ?? params?.slug));
-  useEffect(() => { if (service) document.title = `${service.title} — Vertente Vegetal`; }, [service]);
+  useEffect(() => { 
+    if (service) document.title = `${service.title} — Vertente Vegetal`; 
+    window.scrollTo(0, 0); 
+  }, [service]);
   if (!service) return <div className="grid min-h-screen place-items-center bg-paper p-6 text-center"><div><p className="eyebrow text-ocre">Página não encontrada</p><h1 className="mt-4 font-display text-5xl text-forest">Esse caminho ainda não foi mapeado.</h1><Link href="/" className="mt-7 inline-flex rounded-full bg-forest px-5 py-3 text-sm font-bold text-white">Voltar ao início</Link></div></div>;
   const isReflorestar = service.slug === "programa-reflorestar";
   return <div className="min-h-screen bg-paper text-ink"><Header /><main><section className="relative flex min-h-[650px] items-end overflow-hidden bg-forest pb-16 pt-36 text-white md:min-h-[700px] md:pb-24"><img src={service.image} alt="" className="absolute inset-0 h-full w-full object-cover opacity-65" /><div className="absolute inset-0 bg-gradient-to-t from-forest via-forest/35 to-forest/15" /><div className="container relative z-10"><Link href="/#servicos" className="mb-20 inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.16em] text-white/60 hover:text-ocre"><ArrowLeft size={15} /> Todos os serviços</Link><p className="eyebrow text-ocre">{service.eyebrow}</p><h1 className="mt-4 max-w-4xl break-words font-display text-[clamp(3.5rem,8vw,7rem)] leading-[0.86] tracking-tight">{service.title}</h1><p className="mt-7 max-w-xl text-lg leading-7 text-white/70">{service.summary}</p><a href={whatsappUrl} className="mt-8 inline-flex items-center gap-3 rounded-full bg-ocre px-6 py-4 text-sm font-bold text-white hover:-translate-y-1 hover:bg-white hover:text-forest">Conversar sobre este serviço <ArrowRight size={17} /></a></div></section>
