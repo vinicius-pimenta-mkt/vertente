@@ -10,7 +10,8 @@ import { ThemeProvider } from "./contexts/ThemeContext";
 
 function GenericServicePage() { return <ServicePage />; }
 function LaudosPage() { return <ServicePage forcedSlug="laudos-e-licencas" />; }
-function ConservacaoPage() { return <ServicePage forcedSlug="conservacao-solo-agua" />; }
+function BarragensPage() { return <ServicePage forcedSlug="projetos-barragens" />; }
+function CarPage() { return <ServicePage forcedSlug="cadastro-ambiental-rural" />; }
 
 function Router() {
   return (
@@ -18,7 +19,8 @@ function Router() {
       <Route path="/" component={Home} />
       <Route path="/servicos/:slug" component={GenericServicePage} />
       <Route path="/laudos-e-licencas" component={LaudosPage} />
-      <Route path="/conservacao-solo-agua" component={ConservacaoPage} />
+      <Route path="/projetos-barragens" component={BarragensPage} />
+      <Route path="/cadastro-ambiental-rural" component={CarPage} />
       <Route path="/404" component={NotFound} />
       <Route component={NotFound} />
     </Switch>
