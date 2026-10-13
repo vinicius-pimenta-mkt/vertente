@@ -39,7 +39,7 @@ export const services: Service[] = [
     whatWeDo: "A Vertente estrutura o levantamento e a representação da propriedade com linguagem clara, conectando informação técnica à realidade de quem precisa decidir no campo.",
     when: ["Você precisa entender os limites da propriedade.", "Vai dividir, medir ou planejar uma nova intervenção.", "Precisa organizar informações espaciais para orientar uma regularização."],
     process: ["Conversa inicial sobre o objetivo da propriedade.", "Leitura do cenário e definição do levantamento necessário.", "Organização das informações para orientar a próxima decisão."],
-    image: "/images/hero.png",
+    image: "/images/field.jpg",
     gallery: ["/portfolio/geo/geo1.jpg", "/portfolio/geo/geo2.jpg", "/portfolio/geo/geo3.jpg", "/portfolio/geo/geo4.jpg", "/portfolio/geo/geo5.jpg", "/portfolio/geo/geo6.jpg", "/portfolio/geo/geo7.jpg", "/portfolio/geo/geo8.jpg", "/portfolio/geo/geo9.jpg"],
     accent: "ocre",
   },
@@ -67,8 +67,8 @@ export const services: Service[] = [
     whatWeDo: "A Vertente realiza o levantamento técnico, mapeamento de áreas de preservação e uso consolidado, e conduz o processo de inscrição ou retificação do CAR no sistema oficial.",
     when: ["Precisa emitir o CAR pela primeira vez na propriedade.", "Há pendências ou solicitações de retificação apontadas pelo órgão ambiental.", "Vai solicitar financiamento bancário, crédito rural ou desmembramento."],
     process: ["Análise documental e histórico de uso da terra.", "Vistoria técnica e mapeamento de limites, APPs e Reserva Legal.", "Inscrição, submissão e acompanhamento até a validação."],
-    image: "/images/hero.png",
-    gallery: ["/images/hero.png", "/images/field.jpg", "/images/reflorestar.jpg"],
+    image: "/images/reflorestar.jpg",
+    gallery: ["/images/field.jpg", "/images/reflorestar.jpg"],
     accent: "verde",
   },
   {
@@ -82,7 +82,7 @@ export const services: Service[] = [
     when: ["Precisa armazenar água para irrigação ou dessedentação animal.", "Deseja regularizar um barramento já existente na terra.", "Busca segurança hídrica planejada com respaldo técnico e legal."],
     process: ["Levantamento topográfico e análise do local.", "Estudo técnico e dimensionamento da estrutura do reservatório.", "Organização dos processos de outorga e licenciamento nos órgãos competentes."],
     image: "/images/conservacao.jpg",
-    gallery: ["/images/conservacao.jpg", "/images/field.jpg", "/images/hero.png"],
+    gallery: ["/images/conservacao.jpg", "/images/field.jpg"],
     accent: "verde",
   },
   {
