@@ -6,9 +6,21 @@ import { Header, Footer, WhatsAppFloat } from "@/components/SiteChrome";
 import PortfolioGallery from "@/components/PortfolioGallery";
 import { company, whatsappUrl } from "@/data/company";
 import { problemLinks, services } from "@/data/services";
-import { InstagramFeed } from "@/components/InstagramFeed"; // Ajuste o caminho da pasta se necessário
+import { InstagramFeed } from "@/components/InstagramFeed";
 
-function TopoLines() { return <svg className="pointer-events-none absolute inset-0 h-full w-full opacity-40" viewBox="0 0 800 600" preserveAspectRatio="none" aria-hidden="true"><g fill="none" stroke="currentColor" strokeWidth="1"><path className="topo-line topo-delay-1" d="M-40 390C100 270 180 510 330 390S600 210 850 300"/><path className="topo-line topo-delay-2" d="M-20 440C140 300 190 560 370 420S610 260 870 350"/><path className="topo-line topo-delay-3" d="M-50 500C100 360 230 620 410 460S640 300 900 390"/><path d="M120 0C210 110 100 180 260 240S390 390 330 600"/><path d="M170 0C260 120 150 200 310 250S440 410 380 600"/></g></svg>; }
+function TopoLines() { 
+  return (
+    <svg className="pointer-events-none absolute inset-0 h-full w-full opacity-40" viewBox="0 0 800 600" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+      <g fill="none" stroke="currentColor" strokeWidth="1">
+        <path className="topo-line topo-delay-1" d="M-40 390C100 270 180 510 330 390S600 210 850 300"/>
+        <path className="topo-line topo-delay-2" d="M-20 440C140 300 190 560 370 420S610 260 870 350"/>
+        <path className="topo-line topo-delay-3" d="M-50 500C100 360 230 620 410 460S640 300 900 390"/>
+        <path d="M120 0C210 110 100 180 260 240S390 390 330 600"/>
+        <path d="M170 0C260 120 150 200 310 250S440 410 380 600"/>
+      </g>
+    </svg>
+  ); 
+}
 
 function SectionHeading({ kicker, title, copy, dark = false }: { kicker: string; title: string; copy?: string; dark?: boolean }) { return <div className={`max-w-2xl ${dark ? "text-white" : "text-ink"}`}><p className={`eyebrow ${dark ? "text-ocre" : "text-forest/60"}`}>{kicker}</p><h2 className="mt-4 font-display text-4xl leading-[0.98] tracking-tight md:text-6xl">{title}</h2>{copy && <p className={`mt-5 max-w-xl text-base leading-7 ${dark ? "text-white/60" : "text-ink/65"}`}>{copy}</p>}</div>; }
 
@@ -21,39 +33,124 @@ export default function Home() {
     <div className="min-h-screen overflow-hidden bg-paper">
       <Header />
       <main>
-        <section className="hero relative flex min-h-[720px] items-end overflow-hidden bg-forest pb-16 pt-36 text-white md:min-h-[820px] md:pb-24"><img src="/images/hero.png" alt="Paisagem rural montanhosa do Caparaó" className="absolute inset-0 h-full w-full object-cover opacity-70" /><div className="absolute inset-0 bg-gradient-to-r from-forest via-forest/55 to-transparent" /><div className="absolute inset-0 bg-gradient-to-t from-forest/90 via-transparent to-forest/30" /><div className="absolute inset-0 text-ocre"><TopoLines /></div><div className="container relative z-10 grid items-end gap-12 lg:grid-cols-[1.1fr_0.65fr]"><div className="max-w-3xl"><div className="mb-8 flex items-center gap-3 text-xs font-bold uppercase tracking-[0.22em] text-ocre"><span className="h-px w-10 bg-ocre" /> {company.region}</div><h1 className="max-w-3xl font-display text-[clamp(3.8rem,8vw,7.5rem)] leading-[0.86] tracking-[-0.055em]">Sua propriedade tem mais possibilidades do que você imagina.</h1><p className="mt-8 max-w-lg text-lg leading-7 text-white/70 md:text-xl">Unimos conhecimento técnico e visão de campo para ajudar você a entender, regularizar e desenvolver ainda melhor a sua terra.</p><div className="mt-9 flex flex-col gap-3 sm:flex-row"><a href={whatsappUrl} className="inline-flex items-center justify-center gap-3 rounded-full bg-ocre px-6 py-4 text-sm font-bold text-white transition hover:-translate-y-1 hover:bg-forest" onClick={() => window.dispatchEvent(new CustomEvent("vv:whatsapp"))}>Quero conversar sobre minha propriedade <ArrowRight size={17} /></a><a href="#servicos" className="inline-flex items-center justify-center gap-3 rounded-full border border-white/25 px-6 py-4 text-sm font-bold text-white transition hover:bg-white/10">Saiba como podemos ajudar <ArrowDownRight size={17} /></a></div></div><div className="hidden justify-self-end lg:block"><div className="w-64 border-l border-white/30 pl-5 text-sm leading-6 text-white/65"><p className="mb-3 text-[10px] font-bold uppercase tracking-[0.2em] text-ocre">Nota de campo · 01</p><p>Toda propriedade tem limites, recursos e possibilidades que nem sempre estão visíveis.</p><div className="mt-8 flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.2em] text-white/45"><span className="size-2 rounded-full bg-ocre" /> leitura em andamento</div></div></div></div><div className="absolute bottom-7 right-8 hidden items-center gap-3 text-[10px] font-bold uppercase tracking-[0.2em] text-white/45 md:flex"><span className="h-px w-16 bg-white/30" /> role para explorar</div></section>
-
-        <section id="a-vertente" className="relative py-24 md:py-36"><img src="/images/topo-texture.jpg" alt="" className="pointer-events-none absolute right-0 top-20 h-96 w-1/2 object-cover opacity-[0.08]" /><div className="container grid gap-14 lg:grid-cols-[0.85fr_1.15fr] lg:items-center">
+        {/* HERO SECTION */}
+        <section className="hero relative flex min-h-[720px] items-end overflow-hidden pb-16 pt-36 text-white md:min-h-[820px] md:pb-24" style={{ backgroundColor: '#008724' }}>
+          <img src="/images/hero.png" alt="Paisagem rural montanhosa do Caparaó" className="absolute inset-0 h-full w-full object-cover opacity-70" />
           
-          <div className="relative aspect-[4/5] max-h-[620px] overflow-hidden rounded-[2rem] bg-forest">
-            <img src="/images/field.jpg" alt="Conversa técnica em uma propriedade rural" className="h-full w-full object-cover" loading="lazy" />
-            <div className="absolute bottom-5 left-5 right-5 flex items-end justify-between">
-              {/* Ajustado: flex items-center gap-2 para alinhar lado a lado e margem removida do MapPin */}
-              <div className="flex items-center gap-2 rounded-xl bg-paper/90 px-4 py-3 text-xs font-bold text-forest backdrop-blur">
-                <MapPin size={14} className="text-ocre" /> Ibitirama · ES
+          {/* Gradientes com o Verde RGB: R:0 G:135 B:36 (#008724) */}
+          <div className="absolute inset-0" style={{ background: 'linear-gradient(to right, rgba(0, 135, 36, 0.92), rgba(0, 135, 36, 0.55), transparent)' }} />
+          <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(0, 135, 36, 0.95), transparent, rgba(0, 135, 36, 0.3))' }} />
+          
+          <div className="absolute inset-0 text-ocre"><TopoLines /></div>
+          
+          <div className="container relative z-10 grid items-end gap-12 lg:grid-cols-[1.1fr_0.65fr]">
+            <div className="max-w-3xl">
+              <div className="mb-8 flex items-center gap-3 text-xs font-bold uppercase tracking-[0.22em] text-ocre">
+                <span className="h-px w-10 bg-ocre" /> {company.region}
               </div>
-              <span className="rounded-full bg-ocre px-3 py-2 text-[10px] font-bold uppercase tracking-[0.16em] text-white">Campo + método</span>
+              <h1 className="max-w-3xl font-display text-[clamp(3.8rem,8vw,7.5rem)] leading-[0.86] tracking-[-0.055em]">
+                Sua propriedade tem mais possibilidades do que você imagina.
+              </h1>
+              <p className="mt-8 max-w-lg text-lg leading-7 text-white/70 md:text-xl">
+                Unimos conhecimento técnico e visão de campo para ajudar você a entender, regularizar e desenvolver ainda melhor a sua terra.
+              </p>
+              
+              {/* Botão ajustado para mobile e desktop */}
+              <div className="mt-9 flex flex-col gap-3 sm:flex-row">
+                <a 
+                  href={whatsappUrl} 
+                  className="inline-flex items-center justify-center gap-2 sm:gap-3 rounded-full bg-ocre px-5 py-3 sm:px-6 sm:py-4 text-xs sm:text-sm font-bold text-white transition hover:-translate-y-1 hover:bg-forest text-center leading-snug" 
+                  onClick={() => window.dispatchEvent(new CustomEvent("vv:whatsapp"))}
+                >
+                  Quero conversar sobre minha propriedade <ArrowRight size={17} className="shrink-0" />
+                </a>
+                <a 
+                  href="#servicos" 
+                  className="inline-flex items-center justify-center gap-2 sm:gap-3 rounded-full border border-white/25 px-5 py-3 sm:px-6 sm:py-4 text-xs sm:text-sm font-bold text-white transition hover:bg-white/10 text-center leading-snug"
+                >
+                  Saiba como podemos ajudar <ArrowDownRight size={17} className="shrink-0" />
+                </a>
+              </div>
+            </div>
+
+            <div className="hidden justify-self-end lg:block">
+              <div className="w-64 border-l border-white/30 pl-5 text-sm leading-6 text-white/65">
+                <p className="mb-3 text-[10px] font-bold uppercase tracking-[0.2em] text-ocre">Nota de campo · 01</p>
+                <p>Toda propriedade tem limites, recursos e possibilidades que nem sempre estão visíveis.</p>
+                <div className="mt-8 flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.2em] text-white/45">
+                  <span className="size-2 rounded-full bg-ocre" /> leitura em andamento
+                </div>
+              </div>
             </div>
           </div>
 
-          <div><SectionHeading kicker="A Vertente" title="Conhecer a terra é o primeiro passo para decidir sobre ela." copy="A Vertente Vegetal nasceu no Caparaó Capixaba, onde a terra, o relevo, a água e a produção impõem decisões que precisam ser tomadas com conhecimento. A partir de Ibitirama, unimos experiência técnica e realidade de campo para ajudar produtores a entender melhor suas propriedades, regularizar o que for necessário, conservar seus recursos e encontrar caminhos para desenvolvê-las." /><div className="mt-10 grid grid-cols-2 gap-8 md:grid-cols-3"><Metric icon={MapPin} number="NO ESPÍRITO SANTO" label="DEZENAS DE PROPRIEDADES IMPACTADAS" /><Metric icon={Ruler} number="NAS PROPRIEDADES" label="PRODUTORES QUE CONHECEM CADA CENTÍMETRO DE SUA TERRA" /><Metric icon={Sprout} number="NO MEIO AMBIENTE" label="DIVERSAS ÁREAS DE CONSERVAÇÃO E RECUPERAÇÃO GERANDO RENDA AOS PRODUTORES" /></div><a href={company.instagramUrl} target="_blank" rel="noreferrer" className="mt-10 inline-flex items-center gap-2 text-sm font-bold text-forest underline decoration-ocre decoration-2 underline-offset-8">Conheça a Vertente no Instagram <MoveUpRight size={16} /></a></div></div></section>
+          <div className="absolute bottom-7 right-8 hidden items-center gap-3 text-[10px] font-bold uppercase tracking-[0.2em] text-white/45 md:flex">
+            <span className="h-px w-16 bg-white/30" /> role para explorar
+          </div>
+        </section>
 
-        {/* FEED DO INSTAGRAM ADICIONADO AQUI */}
+        {/* A VERTENTE + MAPA ESTÁTICO */}
+        <section id="a-vertente" className="relative pt-24 md:pt-36">
+          <img src="/images/topo-texture.jpg" alt="" className="pointer-events-none absolute right-0 top-20 h-96 w-1/2 object-cover opacity-[0.08]" />
+          
+          <div className="container grid gap-14 lg:grid-cols-[0.85fr_1.15fr] lg:items-center">
+            <div className="relative aspect-[4/5] max-h-[620px] overflow-hidden rounded-[2rem] bg-forest">
+              <img src="/images/field.jpg" alt="Conversa técnica em uma propriedade rural" className="h-full w-full object-cover" loading="lazy" />
+              <div className="absolute bottom-5 left-5 right-5 flex items-end justify-between">
+                <div className="flex items-center gap-2 rounded-xl bg-paper/90 px-4 py-3 text-xs font-bold text-forest backdrop-blur">
+                  <MapPin size={14} className="text-ocre" /> Ibitirama · ES
+                </div>
+                <span className="rounded-full bg-ocre px-3 py-2 text-[10px] font-bold uppercase tracking-[0.16em] text-white">Campo + método</span>
+              </div>
+            </div>
+
+            <div>
+              <SectionHeading kicker="A Vertente" title="Conhecer a terra é o primeiro passo para decidir sobre ela." copy="A Vertente Vegetal nasceu no Caparaó Capixaba, onde a terra, o relevo, a água e a produção impõem decisões que precisam ser tomadas com conhecimento. A partir de Ibitirama, unimos experiência técnica e realidade de campo para ajudar produtores a entender melhor suas propriedades, regularizar o que for necessário, conservar seus recursos e encontrar caminhos para desenvolvê-las." />
+              <div className="mt-10 grid grid-cols-2 gap-8 md:grid-cols-3">
+                <Metric icon={MapPin} number="NO ESPÍRITO SANTO" label="DEZENAS DE PROPRIEDADES IMPACTADAS" />
+                <Metric icon={Ruler} number="NAS PROPRIEDADES" label="PRODUTORES QUE CONHECEM CADA CENTÍMETRO DE SUA TERRA" />
+                <Metric icon={Sprout} number="NO MEIO AMBIENTE" label="DIVERSAS ÁREAS DE CONSERVAÇÃO E RECUPERAÇÃO GERANDO RENDA AOS PRODUTORES" />
+              </div>
+              <a href={company.instagramUrl} target="_blank" rel="noreferrer" className="mt-10 inline-flex items-center gap-2 text-sm font-bold text-forest underline decoration-ocre decoration-2 underline-offset-8">Conheça a Vertente no Instagram <MoveUpRight size={16} /></a>
+            </div>
+          </div>
+
+          {/* IMAGEM DO MAPA ESTÁTICO (Ocupando toda a largura com versão Mobile/Desktop) */}
+          <div className="mt-24 w-full md:mt-32 pb-24 md:pb-36">
+            <img 
+              src="/images/ondestamos.png" 
+              alt="Mapa de atuação da Vertente Vegetal no Espírito Santo" 
+              className="hidden w-full h-auto object-cover md:block"
+              loading="lazy"
+            />
+            <img 
+              src="/images/ondestamosmobile.png" 
+              alt="Mapa de atuação da Vertente Vegetal no Espírito Santo" 
+              className="block w-full h-auto object-cover md:hidden"
+              loading="lazy"
+            />
+          </div>
+        </section>
+
+        {/* FEED DO INSTAGRAM */}
         <InstagramFeed />
 
+        {/* SERVIÇOS */}
         <section id="servicos" className="bg-sand py-24 md:py-32"><div className="container"><SectionHeading kicker="O que fazemos" title="A propriedade não vem com manual. A conversa começa pelo seu cenário." copy="Serviços para transformar dúvidas concretas em próximos passos possíveis — com clareza técnica e proximidade." /><div className="mt-12 grid gap-5 md:grid-cols-2">{services.map((service, index) => <Link key={service.slug} href={`/servicos/${service.slug}`} className={`service-card group relative min-h-[360px] overflow-hidden rounded-[1.5rem] bg-forest ${index === 0 ? "md:row-span-2 md:min-h-[740px]" : ""} ${index === services.length - 1 ? "md:col-span-2" : ""}`}><img src={service.image} alt="" className="absolute inset-0 h-full w-full object-cover opacity-75 transition duration-700 group-hover:scale-105 group-hover:opacity-90" /><div className="absolute inset-0 bg-gradient-to-t from-forest via-forest/25 to-transparent" /><div className="relative flex h-full min-h-[360px] flex-col justify-end p-7 text-white md:p-9"><div className="mb-auto flex items-start justify-between"><span className="tag">{service.eyebrow}</span><span className="grid size-10 place-items-center rounded-full border border-white/25 transition group-hover:-translate-y-1 group-hover:bg-ocre"><ArrowUpRight size={17} /></span></div><h3 className="max-w-3xl font-display text-3xl leading-none md:text-4xl">{service.title}</h3><p className="mt-3 max-w-2xl text-sm leading-6 text-white/65">{service.summary}</p></div></Link>)}</div></div></section>
 
+        {/* PROBLEMAS */}
         <section className="bg-forest py-24 text-white md:py-32"><div className="container grid gap-14 lg:grid-cols-[0.8fr_1.2fr]"><SectionHeading dark kicker="Comece pelo problema" title="Como podemos ajudar na sua propriedade?" copy="Você não precisa saber o nome do serviço para começar. Escolha a situação que mais se aproxima do que está vivendo." /><div className="grid gap-2">{problemLinks.map((item, i) => <Link key={item.label} href={`/servicos/${item.service}`} className="group flex items-center justify-between border-b border-white/15 py-4 text-base text-white/75 transition hover:border-ocre hover:text-white"><span><span className="mr-4 font-mono text-xs text-ocre">{String(i + 1).padStart(2, "0")}</span>{item.label}</span><ArrowRight size={17} className="text-white/35 transition group-hover:translate-x-1 group-hover:text-ocre" /></Link>)}
           
-          {/* Ajustado: Texto do botão alterado */}
           <a href={whatsappUrl} className="mt-8 inline-flex w-fit items-center gap-2 rounded-full bg-ocre px-5 py-3 text-sm font-bold text-white hover:bg-white hover:text-forest">
             Que tal uma conversa para começar? <ArrowRight size={16} />
           </a>
           
           </div></div></section>
 
+        {/* PORTFÓLIO */}
         <section className="bg-paper py-24 md:py-32"><div className="container"><SectionHeading kicker="Portfólio visual" title="Na prática, é assim que ajudamos propriedades a avançar." copy="Cada serviço revela uma parte do território. Explore os registros e veja como a leitura técnica ganha forma no campo." /><div className="mt-14 space-y-16 md:space-y-24">{services.map(service => <PortfolioGallery key={service.slug} service={service} />)}</div></div></section>
 
+        {/* CONTATO */}
         <section id="contato" className="relative overflow-hidden bg-ocre py-24 text-white md:py-32"><div className="absolute -right-20 -top-24 size-96 rounded-full border border-white/20" /><div className="absolute -right-8 -top-12 size-72 rounded-full border border-white/15" /><div className="container relative grid gap-10 lg:grid-cols-[1fr_0.7fr] lg:items-end"><div><p className="eyebrow text-white/70">Próximo passo</p><h2 className="mt-4 max-w-3xl font-display text-5xl leading-[0.94] tracking-tight md:text-7xl">Talvez sua propriedade tenha mais possibilidades do que você imagina.</h2><p className="mt-7 max-w-xl text-lg leading-7 text-white/75">Conte para a Vertente o que você pretende fazer. A equipe pode avaliar o cenário e orientar os próximos passos.</p></div><div className="lg:justify-self-end"><a href={whatsappUrl} className="inline-flex items-center gap-3 rounded-full bg-forest px-6 py-4 text-sm font-bold text-white transition hover:-translate-y-1 hover:bg-white hover:text-forest" onClick={() => window.dispatchEvent(new CustomEvent("vv:whatsapp"))}>Falar pelo WhatsApp <ArrowRight size={17} /></a></div></div></section>
       </main>
       <Footer />
