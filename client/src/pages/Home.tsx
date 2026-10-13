@@ -33,12 +33,12 @@ export default function Home() {
     <div className="min-h-screen overflow-hidden bg-paper">
       <Header />
       <main>
-        {/* HERO SECTION - Fundo HEX #06470C */}
-        <section className="hero relative flex min-h-[720px] items-end overflow-hidden pb-16 pt-36 text-white md:min-h-[820px] md:pb-24" style={{ backgroundColor: '#06470C' }}>
+        {/* HERO SECTION - Cor Hex: #053D0A (R:5 G:61 B:10) */}
+        <section className="hero relative flex min-h-[720px] items-end overflow-hidden pb-16 pt-36 text-white md:min-h-[820px] md:pb-24" style={{ backgroundColor: '#053D0A' }}>
           <img src="/images/hero.png" alt="Paisagem rural montanhosa do Caparaó" className="absolute inset-0 h-full w-full object-cover opacity-70" />
           
-          <div className="absolute inset-0" style={{ background: 'linear-gradient(to right, rgba(6, 71, 12, 0.92), rgba(6, 71, 12, 0.55), transparent)' }} />
-          <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(6, 71, 12, 0.95), transparent, rgba(6, 71, 12, 0.3))' }} />
+          <div className="absolute inset-0" style={{ background: 'linear-gradient(to right, rgba(5, 61, 10, 0.92), rgba(5, 61, 10, 0.55), transparent)' }} />
+          <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(5, 61, 10, 0.95), transparent, rgba(5, 61, 10, 0.3))' }} />
           
           <div className="absolute inset-0 text-ocre"><TopoLines /></div>
           
@@ -87,7 +87,7 @@ export default function Home() {
           </div>
         </section>
 
-        {/* A VERTENTE + MAPA ESTÁTICO (Espaçamentos ligeiramente menores) */}
+        {/* A VERTENTE + MAPA ESTÁTICO */}
         <section id="a-vertente" className="relative pt-16 md:pt-28">
           <img src="/images/topo-texture.jpg" alt="" className="pointer-events-none absolute right-0 top-20 h-96 w-1/2 object-cover opacity-[0.08]" />
           
@@ -113,7 +113,7 @@ export default function Home() {
             </div>
           </div>
 
-          {/* MAPA ESTÁTICO COM ESPAÇAMENTO REDUZIDO */}
+          {/* MAPA ESTÁTICO */}
           <div className="mt-16 w-full md:mt-24 pb-16 md:pb-24">
             <img 
               src="/images/ondestamos.png" 
@@ -133,8 +133,35 @@ export default function Home() {
         {/* FEED DO INSTAGRAM */}
         <InstagramFeed />
 
-        {/* SERVIÇOS */}
-        <section id="servicos" className="bg-sand py-24 md:py-32"><div className="container"><SectionHeading kicker="O que fazemos" title="A propriedade não vem com manual. A conversa começa pelo seu cenário." copy="Serviços para transformar dúvidas concretas em próximos passos possíveis — com clareza técnica e proximidade." /><div className="mt-12 grid gap-5 md:grid-cols-2">{services.map((service, index) => <Link key={service.slug} href={`/servicos/${service.slug}`} className={`service-card group relative min-h-[360px] overflow-hidden rounded-[1.5rem] bg-forest ${index === 0 ? "md:row-span-2 md:min-h-[740px]" : ""} ${index === services.length - 1 ? "md:col-span-2" : ""}`}><img src={service.image} alt="" className="absolute inset-0 h-full w-full object-cover opacity-75 transition duration-700 group-hover:scale-105 group-hover:opacity-90" /><div className="absolute inset-0 bg-gradient-to-t from-forest via-forest/25 to-transparent" /><div className="relative flex h-full min-h-[360px] flex-col justify-end p-7 text-white md:p-9"><div className="mb-auto flex items-start justify-between"><span className="tag">{service.eyebrow}</span><span className="grid size-10 place-items-center rounded-full border border-white/25 transition group-hover:-translate-y-1 group-hover:bg-ocre"><ArrowUpRight size={17} /></span></div><h3 className="max-w-3xl font-display text-3xl leading-none md:text-4xl">{service.title}</h3><p className="mt-3 max-w-2xl text-sm leading-6 text-white/65">{service.summary}</p></div></Link>)}</div></div></section>
+        {/* SERVIÇOS (Ajustado para cards ficarem alinhados lado a lado no desktop) */}
+        <section id="servicos" className="bg-sand py-24 md:py-32">
+          <div className="container">
+            <SectionHeading kicker="O que fazemos" title="A propriedade não vem com manual. A conversa começa pelo seu cenário." copy="Serviços para transformar dúvidas concretas em próximos passos possíveis — com clareza técnica e proximidade." />
+            
+            <div className="mt-12 grid gap-5 md:grid-cols-2">
+              {services.map((service, index) => (
+                <Link 
+                  key={service.slug} 
+                  href={`/servicos/${service.slug}`} 
+                  className={`service-card group relative min-h-[360px] overflow-hidden rounded-[1.5rem] bg-forest ${index === 0 ? "md:row-span-2 md:min-h-[740px]" : "md:col-span-1"}`}
+                >
+                  <img src={service.image} alt="" className="absolute inset-0 h-full w-full object-cover opacity-75 transition duration-700 group-hover:scale-105 group-hover:opacity-90" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-forest via-forest/25 to-transparent" />
+                  <div className="relative flex h-full min-h-[360px] flex-col justify-end p-7 text-white md:p-9">
+                    <div className="mb-auto flex items-start justify-between">
+                      <span className="tag">{service.eyebrow}</span>
+                      <span className="grid size-10 place-items-center rounded-full border border-white/25 transition group-hover:-translate-y-1 group-hover:bg-ocre">
+                        <ArrowUpRight size={17} />
+                      </span>
+                    </div>
+                    <h3 className="max-w-3xl font-display text-3xl leading-none md:text-4xl">{service.title}</h3>
+                    <p className="mt-3 max-w-2xl text-sm leading-6 text-white/65">{service.summary}</p>
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
 
         {/* PROBLEMAS */}
         <section className="bg-forest py-24 text-white md:py-32"><div className="container grid gap-14 lg:grid-cols-[0.8fr_1.2fr]"><SectionHeading dark kicker="Comece pelo problema" title="Como podemos ajudar na sua propriedade?" copy="Você não precisa saber o nome do serviço para começar. Escolha a situação que mais se aproxima do que está vivendo." /><div className="grid gap-2">{problemLinks.map((item, i) => <Link key={item.label} href={`/servicos/${item.service}`} className="group flex items-center justify-between border-b border-white/15 py-4 text-base text-white/75 transition hover:border-ocre hover:text-white"><span><span className="mr-4 font-mono text-xs text-ocre">{String(i + 1).padStart(2, "0")}</span>{item.label}</span><ArrowRight size={17} className="text-white/35 transition group-hover:translate-x-1 group-hover:text-ocre" /></Link>)}
