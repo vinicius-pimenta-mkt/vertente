@@ -33,13 +33,12 @@ export default function Home() {
     <div className="min-h-screen overflow-hidden bg-paper">
       <Header />
       <main>
-        {/* HERO SECTION */}
-        <section className="hero relative flex min-h-[720px] items-end overflow-hidden pb-16 pt-36 text-white md:min-h-[820px] md:pb-24" style={{ backgroundColor: '#008724' }}>
+        {/* HERO SECTION - Fundo HEX #06470C */}
+        <section className="hero relative flex min-h-[720px] items-end overflow-hidden pb-16 pt-36 text-white md:min-h-[820px] md:pb-24" style={{ backgroundColor: '#06470C' }}>
           <img src="/images/hero.png" alt="Paisagem rural montanhosa do Caparaó" className="absolute inset-0 h-full w-full object-cover opacity-70" />
           
-          {/* Gradientes com o Verde RGB: R:0 G:135 B:36 (#008724) */}
-          <div className="absolute inset-0" style={{ background: 'linear-gradient(to right, rgba(0, 135, 36, 0.92), rgba(0, 135, 36, 0.55), transparent)' }} />
-          <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(0, 135, 36, 0.95), transparent, rgba(0, 135, 36, 0.3))' }} />
+          <div className="absolute inset-0" style={{ background: 'linear-gradient(to right, rgba(6, 71, 12, 0.92), rgba(6, 71, 12, 0.55), transparent)' }} />
+          <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(6, 71, 12, 0.95), transparent, rgba(6, 71, 12, 0.3))' }} />
           
           <div className="absolute inset-0 text-ocre"><TopoLines /></div>
           
@@ -55,7 +54,6 @@ export default function Home() {
                 Unimos conhecimento técnico e visão de campo para ajudar você a entender, regularizar e desenvolver ainda melhor a sua terra.
               </p>
               
-              {/* Botão ajustado para mobile e desktop */}
               <div className="mt-9 flex flex-col gap-3 sm:flex-row">
                 <a 
                   href={whatsappUrl} 
@@ -89,8 +87,8 @@ export default function Home() {
           </div>
         </section>
 
-        {/* A VERTENTE + MAPA ESTÁTICO */}
-        <section id="a-vertente" className="relative pt-24 md:pt-36">
+        {/* A VERTENTE + MAPA ESTÁTICO (Espaçamentos ligeiramente menores) */}
+        <section id="a-vertente" className="relative pt-16 md:pt-28">
           <img src="/images/topo-texture.jpg" alt="" className="pointer-events-none absolute right-0 top-20 h-96 w-1/2 object-cover opacity-[0.08]" />
           
           <div className="container grid gap-14 lg:grid-cols-[0.85fr_1.15fr] lg:items-center">
@@ -115,8 +113,8 @@ export default function Home() {
             </div>
           </div>
 
-          {/* IMAGEM DO MAPA ESTÁTICO (Ocupando toda a largura com versão Mobile/Desktop) */}
-          <div className="mt-24 w-full md:mt-32 pb-24 md:pb-36">
+          {/* MAPA ESTÁTICO COM ESPAÇAMENTO REDUZIDO */}
+          <div className="mt-16 w-full md:mt-24 pb-16 md:pb-24">
             <img 
               src="/images/ondestamos.png" 
               alt="Mapa de atuação da Vertente Vegetal no Espírito Santo" 
